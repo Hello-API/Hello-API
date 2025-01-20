@@ -6,9 +6,7 @@ use App\Containers\AppSection\User\Data\Factories\UserFactory;
 use App\Containers\AppSection\User\Tests\Functional\ApiTestCase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Attributes\CoversNothing;
-use PHPUnit\Framework\Attributes\Group;
 
-#[Group('user')]
 #[CoversNothing]
 final class ListUsersTest extends ApiTestCase
 {

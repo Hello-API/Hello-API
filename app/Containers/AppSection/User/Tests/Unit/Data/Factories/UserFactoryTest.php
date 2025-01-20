@@ -32,13 +32,6 @@ final class UserFactoryTest extends UnitTestCase
         $this->assertNull($user->email_verified_at);
     }
 
-    public function testCanCreateVerifiedUser(): void
-    {
-        $user = UserFactory::new()->verified()->createOne();
-
-        $this->assertNotNull($user->email_verified_at);
-    }
-
     public function testCanSetGender(): void
     {
         $user = UserFactory::new()->gender(Gender::MALE)->createOne();

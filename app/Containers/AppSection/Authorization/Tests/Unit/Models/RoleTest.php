@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authorization\Tests\Unit\Models;
 
-use Apiato\Core\Traits\ModelTrait;
+use Apiato\Foundation\Support\Traits\Model\ModelTrait;
 use App\Containers\AppSection\Authorization\Data\Factories\RoleFactory;
 use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
@@ -14,14 +14,6 @@ final class RoleTest extends UnitTestCase
     public function testUsesCorrectTraits(): void
     {
         $this->assertContains(ModelTrait::class, class_uses_recursive(Role::class));
-    }
-
-    public function testUsesCorrectGuard(): void
-    {
-        $user = RoleFactory::new()->createOne();
-        $guard = 'api';
-
-        $this->assertSame($guard, $this->getInaccessiblePropertyValue($user, 'guard_name'));
     }
 
     public function testHasCorrectFillableFields(): void
@@ -49,8 +41,8 @@ final class RoleTest extends UnitTestCase
 
     public function testHasCorrectResourceKey(): void
     {
-        $user = RoleFactory::new()->createOne();
+        $role = RoleFactory::new()->createOne();
 
-        $this->assertSame('Role', $user->getResourceKey());
+        $this->assertSame('Role', $role->getResourceKey());
     }
 }

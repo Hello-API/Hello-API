@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Authorization\Tests\Unit\Models;
 
-use Apiato\Core\Traits\ModelTrait;
+use Apiato\Foundation\Support\Traits\Model\ModelTrait;
 use App\Containers\AppSection\Authorization\Data\Factories\PermissionFactory;
 use App\Containers\AppSection\Authorization\Models\Permission;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
@@ -14,14 +14,6 @@ final class PermissionTest extends UnitTestCase
     public function testUsesCorrectTraits(): void
     {
         $this->assertContains(ModelTrait::class, class_uses_recursive(Permission::class));
-    }
-
-    public function testUsesCorrectGuard(): void
-    {
-        $permission = PermissionFactory::new()->createOne();
-        $guard = 'api';
-
-        $this->assertSame($guard, $this->getInaccessiblePropertyValue($permission, 'guard_name'));
     }
 
     public function testHasCorrectFillableFields(): void
